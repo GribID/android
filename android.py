@@ -14,7 +14,7 @@ def shipment():
         else:
             sn = sql.zz("SELECT * FROM LV_Shipment WHERE shp_Code = '%s'" % c)
             item = sn.fetchone()
-            if item == None:
+            if not item:
                 return jsonify({'status': 'wrong shipment number'})
             else:
                 print(request.json, item)
